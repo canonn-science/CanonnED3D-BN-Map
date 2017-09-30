@@ -1,4 +1,4 @@
-var canonnEd3d_bn = {
+var canonnEd3d_tb = {
 
 	//Define Categories
 	systemsData: {
@@ -13,7 +13,7 @@ var canonnEd3d_bn = {
 					"color": "f4f142"
 				}
 			},
-			"Barnacles - (BN)": {
+			"Barnacles - (TB)": {
 				"200": {
 					"name": "Barnacle",
 					"color": "44f441"
@@ -80,7 +80,7 @@ var canonnEd3d_bn = {
 	},
 
 	// Lets get data from CSV Files
-	formatBN: function (data) {
+	formatTB: function (data) {
 		//Here you format BN JSON to ED3D acceptable object
 
 		// this is assuming data is an array []
@@ -98,7 +98,7 @@ var canonnEd3d_bn = {
 				};
 
 				// We can then push the site to the object that stores all systems
-				canonnEd3d_bn.systemsData.systems.push(bnSite);
+				canonnEd3d_tb.systemsData.systems.push(bnSite);
 			}
 
 		}
@@ -126,13 +126,13 @@ var canonnEd3d_bn = {
 
 	//Barnacles
 		var p1 = new Promise(function (resolve, reject) {
-				canonnEd3d_bn.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTCGOwaRT8ESad9j0GAQ7tMMNj8ObxipFW8fop3eaZ-HoCVo_k9dQsHVvs1oFvARrY5SC6o4uDAWKQA/pub?gid=290263950&single=true&output=csv", canonnEd3d_bn.formatBN, resolve);
+				canonnEd3d_tb.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTCGOwaRT8ESad9j0GAQ7tMMNj8ObxipFW8fop3eaZ-HoCVo_k9dQsHVvs1oFvARrY5SC6o4uDAWKQA/pub?gid=290263950&single=true&output=csv", canonnEd3d_tb.formatTB, resolve);
 			});
 
 		Promise.all([p1]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
-				json: canonnEd3d_bn.systemsData,
+				json: canonnEd3d_tb.systemsData,
 				withHudPanel: true,
 				hudMultipleSelect: true,
 				effectScaleSystem: [50, 10000],
